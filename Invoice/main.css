@@ -9,6 +9,10 @@ hr{
 	border:1px solid lightgrey;
 }
 
+input{
+	font-size: 1em;
+}
+
 .mainbody{
 	background-color: white;
 	padding: 20px;
@@ -41,16 +45,18 @@ hr{
 }
 
 .textBox{
+	width: 85%;
 	border: 1px solid grey;
 	padding: 3px;
 	font-size: 0.98em;
+	background-color: white;
 }
 
 .logo{
 	height: 55px;
 	width: 70%;
 	padding: 10px;
-	border: 1px dashed black;
+	border: 1px solid black;
 	margin-left: 20%;
 	margin-bottom: 10px;
 }
@@ -95,7 +101,7 @@ input:focus, textarea:focus{
 	margin-top: 4px;
 	border: 2px solid lightgrey;
 	width: 40%;
-	font-size: 1.5em;
+	font-family: verdana;
 }
 
 .headerRight input{
@@ -137,6 +143,7 @@ table td input{
 	background-color: #E2E2E2;
 	border: 2px solid lightgrey;
 	padding: 3px;
+	cursor: pointer;
 }
 
 .newLine{
@@ -148,6 +155,7 @@ table td input{
 	color: white;
 	padding: 3px;
 	float: left;
+	cursor: pointer;
 }
 
 .divRight{
@@ -180,6 +188,10 @@ table td input{
 
 #rowAmt{
 	float: right;
+	text-align: right;
+	border: none;
+	background-color: white;
+	width: 70%;
 }
 
 .btnTotal{
@@ -206,9 +218,9 @@ table td input{
 }
 
 .taxBox input{
-	width: 4%;
+	width: 10%;
 	border: none;
-	border-left: 2px solid lightgrey;
+	text-align: right;
 }
 
 .divRight hr{
@@ -218,4 +230,23 @@ table td input{
 
 #btnAmt{
 	float: right;
+}
+
+#btnPdf{
+	float: right;
+	margin-top: 30px;
+	margin-right: 6%;
+	background-color:#E53E3E;
+	padding:5px;
+	color: white;
+	border: 2px solid #E53E3E;
+	cursor: pointer;
+}
+
+.remove{
+	background-color: #E53E3E;
+	border: 2px solid #E53E3E;
+	padding: 3px;
+	color: white;
+	cursor: pointer;
 }
