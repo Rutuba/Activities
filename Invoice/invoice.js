@@ -6,22 +6,23 @@ $("#currency").on("change",function(){
 	$(".curr").html(cur);
 	$("#btnCurr").html(cur);
 });
-// function nLine(){
-// 	var txt = "<tr id=\"items\" class=\"items\"><td class=\"product\">";
-// 		txt+= "<input type=\"text\" placeholder=\"Item Name\" id=\"name\">"; 
-// 		txt+= "<button class=\"clone\" id=\"clone\" onclick=\"cloneRow()\"> ";
-// 		txt+= "<i class=\"fa fa-files-o\"></i> </button> </td>";
-// 		txt+= "<td style=\"width:10%\" id=\"qtd\"> <input type=\"number\" min=1 ";
-// 		txt+= "style=\"width:90%\" id=\"qty\" class=\"qty\" value=\"1\" onchange=\"updateRowAmount()\">";
-// 		txt+= "</td><td style=\"width:10%\" id=\"ptd\"><input type=\"text\" style=\"width:90%\" id=\"price\" ";
-// 		txt+= "class=\"price\" value=\"0.00\" onkeyup=\"updateRowAmount()\"></td>";
-// 		txt+= "<td style=\"width:20%\" id=\"rtd\"> ";
-// 		txt+= "<label id=\"curr\" class=\"curr\">--</label> ";
-// 		txt+= "<input type=\"text\" id=\"rowAmt\" value=\"00.00\" class=\"rowAmt\" disabled> ";
-// 		txt+= "</td> <td> <button class=\"remove\" id=\"remove\" onclick=\"removeRow()\">X</button>";
-// 		txt+= "</td> </tr>";
-// 		$(table tbody).append(txt);
-// }
+function nLine(){
+	var txt = "<tr id=\"items\" class=\"items\"><td class=\"product\">";
+		txt+= "<input type=\"text\" placeholder=\"Item Name\" id=\"name\">"; 
+		txt+= "<button class=\"clone\" id=\"clone\" onclick=\"cloneRow()\"> ";
+		txt+= "<i class=\"fa fa-files-o\"></i> </button> </td>";
+		txt+= "<td style=\"width:10%\" id=\"qtd\"> <input type=\"number\" min=1 ";
+		txt+= "style=\"width:90%\" id=\"qty\" class=\"qty\" value=\"1\" onchange=\"updateRowAmount()\">";
+		txt+= "</td><td style=\"width:10%\" id=\"ptd\"><input type=\"text\" style=\"width:90%\" id=\"price\" ";
+		txt+= "class=\"price\" value=\"0.00\" onkeyup=\"updateRowAmount()\"></td>";
+		txt+= "<td style=\"width:20%\" id=\"rtd\"> ";
+		txt+= "<label id=\"curr\" class=\"curr\">--</label> ";
+		txt+= "<input type=\"text\" id=\"rowAmt\" value=\"00.00\" class=\"rowAmt\" disabled> ";
+		txt+= "</td> <td> <button class=\"remove\" id=\"remove\" onclick=\"removeRow()\">X</button>";
+		txt+= "</td> </tr>";
+		var table = document.getElementById("ptable");
+		table.appendChild(txt);
+}
 
 //new Line
 function newLine(){
