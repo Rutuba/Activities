@@ -1,16 +1,18 @@
 
 //currency change
 $("#currency").on("click",function(){
-	prev = $(this).val();
+	prev = $(this).val(); // get the prev value of currency
 }).on("change",function(){
-	var cur = $("#currency").val();
-	console.log("Prev : ",prev);
-	console.log("Curr : ",cur);
-	$(".curr").html(cur);
+	var cur = $("#currency").val(); //get current value of currency
+	//console.log("Prev : ",prev);
+	//console.log("Curr : ",cur);
+	$(".curr").html(cur);  //update currency
 	$("#btnCurr").html(cur);
 
 	var tbl = document.getElementsByClassName('ptable')[0];
 	var rows = tbl.getElementsByClassName('items');
+
+	//update each row for price and total
 	for(var i=0;i<rows.length ; i++){
 		var rtd = rows[i];
 		if(prev == "INR"){
@@ -87,6 +89,7 @@ $("#currency").on("click",function(){
 	updateRowAmount();
 });
 
+//add new blank line
 function nLine(){
 	var txt = "<tr id=\"items\" class=\"items\"><td class=\"product\">";
 		txt+= "<input type=\"text\" placeholder=\"Item Name\" id=\"name\">"; 
@@ -105,7 +108,7 @@ function nLine(){
 		$('#ptable').append(txt);
 }
 
-//new Line
+//new Line with copy
 function newLine(){
 	var rcnt = ($('.items')).length ; 
 	if(rcnt == 0)
@@ -136,11 +139,10 @@ function cloneRow() {
 	var table = document.getElementById("ptable"); // find table to append to
 	var clone = row.cloneNode(true); // copy children too
 	table.appendChild(clone); // add new row to end of table
-	//table.insertAfter(clone,row);
-	updateTotal();
+	updateTotal();  //update the total
 }
 
-
+//update each row for change in price or qty
 function updateRowAmount(){
 	var tbl = document.getElementsByClassName('ptable')[0];
 	var rows = tbl.getElementsByClassName('items');
@@ -178,20 +180,21 @@ function updateTotal(){
 		//console.log(amt);
 		total = total + parseFloat(amt);
 	}
-	//put updated value
-	$("#subtotal").html(total);
+	//calculate tax and total amount
 	var tax = Math.round(total * parseFloat(document.getElementById('per').value) )/ 100;
 	var final = (Math.round((total + tax)*100 ))/100;
+	//put updated value
+	$("#subtotal").html(total);
 	$("#tax").html(tax);
 	$("#total").html(final);
 	$("#btnAmt").html(final);
-	console.log("sub total : " , total , "\n tax : ",tax ,"\n total : ",final);	
+	//console.log("sub total : " , total , "\n tax : ",tax ,"\n total : ",final);	
 }
 
-//jsPDF//onclick="convertHTMLToPDF()"
+//jsPDF : convert html to pdf
 function convertHTMLToPDF() {
 	const { jsPDF } = window.jspdf;
- 	var doc = new jsPDF('l', 'mm', [1000, 900]);//[1200, 1810]);, [900, auto]
+ 	var doc = new jsPDF('l', 'mm', [1000, 900]);
 	//var doc = new jsPDF();
 	var pdfjs = document.querySelector('#mainbody');
 	doc.html(pdfjs, {
@@ -203,12 +206,13 @@ function convertHTMLToPDF() {
 	});
 }
 
+//remove the row
 function removeRow(){
 	var tmp= event.target;
 	var row =tmp.parentElement.parentElement;
 	row.remove();
 	updateTotal();
-	console.log("done");
+	//console.log("done");
 }
 
 
