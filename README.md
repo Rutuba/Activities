@@ -1,3 +1,3 @@
 # Activities
 
-![screenshot(invoice/invoice_SS)]
+![screenshot](Invoice/invoice_SS.png)
