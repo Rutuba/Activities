@@ -1,10 +1,42 @@
+$(document).ready(function() { 
+	$("#currency").val("INR");
+	$(".curr").html("INR");
+	$("#btnCurr").html("INR");
+});
 
 //currency change
-$("#currency").on("change",function(){
-	//alert("hello");
+$("#currency").on("click",function(){
+	prev = $(this).val();
+}).on("change",function(){
 	var cur = $("#currency").val();
+	console.log("Prev : ",prev);
+	console.log("Curr : ",cur);
 	$(".curr").html(cur);
 	$("#btnCurr").html(cur);
+
+	var tbl = document.getElementsByClassName('ptable')[0];
+	var rows = tbl.getElementsByClassName('items');
+	for(var i=0;i<rows.length ; i++){
+		var rtd = rows[i];
+		if(prev == "INR"){
+			if(cur == "EUR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.011818297 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "GBP"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.0098619892  *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "SGD"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.018033106 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+		}
+	}
+	updateRowAmount();
 });
 function nLine(){
 	var txt = "<tr id=\"items\" class=\"items\"><td class=\"product\">";
@@ -20,21 +52,26 @@ function nLine(){
 		txt+= "<input type=\"text\" id=\"rowAmt\" value=\"00.00\" class=\"rowAmt\" disabled> ";
 		txt+= "</td> <td> <button class=\"remove\" id=\"remove\" onclick=\"removeRow()\">X</button>";
 		txt+= "</td> </tr>";
-		var table = document.getElementById("ptable");
-		table.appendChild(txt);
+		var table = document.getElementById("ptable").tbody;
+		$('#ptable').append(txt);
 }
 
 //new Line
 function newLine(){
-	var lastrow = $('.items:last');
-	console.log(lastrow)
-	var newrow = lastrow.clone();
-	newrow.find('#name').val("");
-	newrow.find('#rowAmt').text("0.00");
-	newrow.find('#qty').val("1");
-	newrow.find('#price').val("00.00");
-	newrow.find('#rowAmt').val("00.00");
-	newrow.insertAfter(lastrow);
+	var rows = $('.items');
+	if(rows.length == 0)
+		nLine();
+	else{
+		var lastrow = $('.items:last');
+		console.log(lastrow)
+		var newrow = lastrow.clone();
+		newrow.find('#name').val("");
+		newrow.find('#rowAmt').text("0.00");
+		newrow.find('#qty').val("1");
+		newrow.find('#price').val("00.00");
+		newrow.find('#rowAmt').val("00.00");
+		newrow.insertAfter(lastrow);
+	}
 	updateTotal();
 }
 
@@ -124,5 +161,4 @@ function removeRow(){
 	updateTotal();
 	console.log("done");
 }
-
 
