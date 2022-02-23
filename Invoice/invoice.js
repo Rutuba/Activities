@@ -1,8 +1,3 @@
-$(document).ready(function() { 
-	$("#currency").val("INR");
-	$(".curr").html("INR");
-	$("#btnCurr").html("INR");
-});
 
 //currency change
 $("#currency").on("click",function(){
@@ -91,6 +86,7 @@ $("#currency").on("click",function(){
 	}
 	updateRowAmount();
 });
+
 function nLine(){
 	var txt = "<tr id=\"items\" class=\"items\"><td class=\"product\">";
 		txt+= "<input type=\"text\" placeholder=\"Item Name\" id=\"name\">"; 
@@ -111,20 +107,15 @@ function nLine(){
 
 //new Line
 function newLine(){
-	var rows = $('.items');
-	if(rows.length == 0)
-		nLine();
-	else{
-		var lastrow = $('.items:last');
-		console.log(lastrow)
-		var newrow = lastrow.clone();
-		newrow.find('#name').val("");
-		newrow.find('#rowAmt').text("0.00");
-		newrow.find('#qty').val("1");
-		newrow.find('#price').val("00.00");
-		newrow.find('#rowAmt').val("00.00");
-		newrow.insertAfter(lastrow);
-	}
+	var lastrow = $('.items:last');
+	console.log(lastrow)
+	var newrow = lastrow.clone();
+	newrow.find('#name').val("");
+	newrow.find('#rowAmt').text("0.00");
+	newrow.find('#qty').val("1");
+	newrow.find('#price').val("00.00");
+	newrow.find('#rowAmt').val("00.00");
+	newrow.insertAfter(lastrow);
 	updateTotal();
 }
 
@@ -214,4 +205,5 @@ function removeRow(){
 	updateTotal();
 	console.log("done");
 }
+
 
