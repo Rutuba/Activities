@@ -97,7 +97,7 @@ function nLine(){
 		txt+= "</td><td style=\"width:10%\" id=\"ptd\"><input type=\"text\" style=\"width:90%\" id=\"price\" ";
 		txt+= "class=\"price\" value=\"0.00\" onkeyup=\"updateRowAmount()\"></td>";
 		txt+= "<td style=\"width:20%\" id=\"rtd\"> ";
-		txt+= "<label id=\"curr\" class=\"curr\">--</label> ";
+		txt+= "<label id=\"curr\" class=\"curr\">INR</label> ";
 		txt+= "<input type=\"text\" id=\"rowAmt\" value=\"00.00\" class=\"rowAmt\" disabled> ";
 		txt+= "</td> <td> <button class=\"remove\" id=\"remove\" onclick=\"removeRow()\">X</button>";
 		txt+= "</td> </tr>";
@@ -107,16 +107,21 @@ function nLine(){
 
 //new Line
 function newLine(){
-	var lastrow = $('.items:last');
-	console.log(lastrow)
-	var newrow = lastrow.clone();
-	newrow.find('#name').val("");
-	newrow.find('#rowAmt').text("0.00");
-	newrow.find('#qty').val("1");
-	newrow.find('#price').val("00.00");
-	newrow.find('#rowAmt').val("00.00");
-	newrow.insertAfter(lastrow);
-	updateTotal();
+	var rcnt = ($('.items')).length ; 
+	if(rcnt == 0)
+		nLine();
+	else{
+		var lastrow = $('.items:last');
+		console.log(lastrow)
+		var newrow = lastrow.clone();
+		newrow.find('#name').val("");
+		newrow.find('#rowAmt').text("0.00");
+		newrow.find('#qty').val("1");
+		newrow.find('#price').val("00.00");
+		newrow.find('#rowAmt').val("00.00");
+		newrow.insertAfter(lastrow);
+		updateTotal();
+	}
 }
 
 //clone function
