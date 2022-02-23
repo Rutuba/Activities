@@ -35,6 +35,59 @@ $("#currency").on("click",function(){
 				rtd.getElementsByClassName('price')[0].value = amt;
 			}
 		}
+		else if(prev == "EUR"){
+			if(cur == "INR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 84.591648 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "GBP"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.83477628 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "SGD"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 1.5254372  *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+		}
+		else if(prev == "GBP"){
+			if(cur == "EUR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 1.1979133 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "INR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 101.3321 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "SGD"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 1.8276085*100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+		}
+		else if(prev == "SGD"){
+			if(cur == "EUR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.65555835 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "GBP"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 0.54716314 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+			else if(cur == "INR"){
+				var price=rtd.getElementsByClassName('price')[0];
+				var amt = (Math.floor(parseFloat(price.value) * 55.451636 *100))/100;
+				rtd.getElementsByClassName('price')[0].value = amt;
+			}
+		
+		}
+		
 	}
 	updateRowAmount();
 });
