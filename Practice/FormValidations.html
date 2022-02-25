@@ -1,0 +1,167 @@
+<!-- Date :  25 Feb 2022 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validations</title>
+
+	<style type="text/css">
+		input
+		{
+			
+			width:300px;
+			height:50px;
+		}
+		span
+		{
+			color:red;
+			font-style: italic;
+
+		}
+	</style>
+</head>
+<body>
+<form action="#" onsubmit="return validation()">
+	<input type="text" name="uname" id="uname" placeholder="enter username"><br>
+	<span id="error"></span><br>
+	<input type="password" name="pass" id="pass" placeholder="enter password"><br>
+	<span id="error_pass"></span><br>
+	<input type="password" name="cpass" id="cpass" placeholder="enter confirm password"><br>
+	<span id="error_cpass"></span><br>
+	<input type="text" name="mnumber" id="mnumber" placeholder="enter mobile number"><br>
+	<span id="error_number"></span><br>
+	<input type="text" name="mail" id="mail" placeholder="enter email"><br>
+	<span id="error_mail"></span><br>
+ 	<input type="submit" name="submit" value="submit">
+</form>
+</body>
+<script type="text/javascript">
+	function validation() {
+	var user=document.getElementById('uname').value;
+	var pass=document.getElementById('pass').value;
+	var cpass=document.getElementById('cpass').value;
+	var a = document.getElementById('mnumber').value;
+	var email=document.getElementById('mail').value;
+	
+	if(user=="")
+	{
+
+		document.getElementById('error').innerHTML="*Please enter username";
+			return false;
+	}
+	else
+	{
+		 document.getElementById("error").innerHTML = "";
+	}
+	if((user.length<3)||(user.length>20))
+	{
+
+		document.getElementById('error').innerHTML="*Please enter user name between 3 to 20";
+		return false;
+	}
+	else
+	{
+		 document.getElementById("error").innerHTML = "";
+	}
+
+	
+
+	if(pass=="")
+	{
+		document.getElementById('error_pass').innerHTML="*Please enter password";
+		return false;
+	}
+	else
+	{
+		 document.getElementById("error_pass").innerHTML = "";
+	}
+
+	if((pass.length<8)||(pass.length>20))
+	{
+		document.getElementById('error_pass').innerHTML="*Please enter password of length between 8 to 20";
+		return false;
+	}
+	else
+	{
+		 document.getElementById("error_pass").innerHTML = "";
+	}
+
+
+	if(cpass=="")
+	{
+		document.getElementById('error_cpass').innerHTML="*Please enter confirm password";
+		return false;
+	}
+	else{
+	 document.getElementById("error_cpass").innerHTML = "";
+	}
+	
+	if(cpass!=pass)
+	{
+	document.getElementById('error_cpass').innerHTML="*Password and confirm password not match";	
+	return false;
+	}
+	else
+	{
+	document.getElementById("error_cpass").innerHTML = "";
+	}
+
+	if(a=="")
+	{
+	document.getElementById('error_number').innerHTML="*Please enter mobile number";
+
+	return false;
+	}
+	else if(isNaN(a))
+	{
+	document.getElementById('error_number').innerHTML="*Please enter only digits";
+
+	return false;
+	}
+	else if (a.length != 10)
+
+		
+
+	{
+		document.getElementById('error_number').innerHTML="*Please enter 10 digits";
+		return false;
+	}
+	else
+	{
+	document.getElementById('error_number').innerHTML="";
+	}
+		if(email=="")
+	{
+		document.getElementById('error_mail').innerHTML="*Please enter email";
+		return false;
+	}
+	else{
+	document.getElementById("error_mail").innerHTML = "";
+	
+	}
+	
+	
+	
+	
+	if(email.indexOf('@')<=0)
+	{
+	document.getElementById('error_mail').innerHTML="*Please enter correct emailid";	
+	return false;
+	}
+	else
+	{
+	document.getElementById("error_mail").innerHTML = "";
+	}
+
+	if((email.charAt(email.length-4)!='.'))
+	{
+	document.getElementById('error_mail').innerHTML="*Please enter correct emailid";	
+	return false;
+	}
+	else
+	{
+	document.getElementById("error_mail").innerHTML = "";
+	}
+
+	}
+</script>
+</html>
