@@ -25,10 +25,12 @@ $(document).ready(function(){
     //console.log($('.green:first'));
     // console.log($('li:last'));
 
+
+    //Click event on a tag
     $('a').on('click' , function(){
         var x = $(this);
         console.log(x.html());
-        alert("hii");
+        alert("You clicked on "+ x.html() + " ....!!!");
     });
 
     //Mouse Events
@@ -46,7 +48,8 @@ $(document).ready(function(){
         $('#list').append("<li> Mouse Click </li>");
         $('#container').css('background-color' , 'teal');
         $('#lbl').html("Mouse Click");
-        alert("hi");
+        //$(this).off() ;
+        //$(this).off('mousedown');
     });
 
     $('#container').on('mouseup' , function(){
@@ -66,5 +69,24 @@ $(document).ready(function(){
         $('#container').css('background-color' , 'chocolate');
         $('#lbl').html("Mouse Double Click");
     });
+
+
+
+    //documents/windows events
+    // $(document).on("wheel",function(e){
+    //     $('#scroll').html(e.originalEvent.deltaY);
+    //     console.log(e.originalEvent.deltaY);
+    // });
+
+    // $(window).load(function(){
+    //     alert("Hello, Welcome to Document events");
+    //     $('#load').html("Document is loaded.");
+    // });
+    // var i=0;
+
+    // $(window).resize(function(){
+    //     i++;
+    //     $('#size').html(i);
+    // });
 
 });
