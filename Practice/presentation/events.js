@@ -26,8 +26,45 @@ $(document).ready(function(){
     // console.log($('li:last'));
 
     $('a').on('click' , function(){
-        var $x = $(this);
-        console.log($x.html());
+        var x = $(this);
+        console.log(x.html());
         alert("hii");
     });
+
+    //Mouse Events
+    $('#container').hover(function(){
+        $('#list').append("<li> Mouse Hover </li><li> Mouse Enter </li>");
+        $('#container').css('background-color' , 'slateblue');
+        $('#lbl').html("Mouse Enter");
+     },function(){
+        $('#list').append("<li> Mouse Leave </li>");
+        $('#container').css('background-color' , 'chocolate');
+        $('#lbl').html("Mouse Leave");
+    });
+
+    $('#container').on('click' , function(){
+        $('#list').append("<li> Mouse Click </li>");
+        $('#container').css('background-color' , 'teal');
+        $('#lbl').html("Mouse Click");
+        alert("hi");
+    });
+
+    $('#container').on('mouseup' , function(){
+        $('#list').append("<li> Mouse UP </li>");
+        $('#container').css('background-color' , 'tomato');
+        $('#lbl').html("Mouse UP");
+    });
+
+    $('#container').on('mousedown' , function(){
+        $('#list').append("<li> Mouse Down </li>");
+        $('#container').css('background-color' , 'cyan');
+        $('#lbl').html("Mouse Down");
+    });
+
+    $('#container').on('dbclick' , function(){
+        $('#list').append("<li> Mouse Double Click </li>");
+        $('#container').css('background-color' , 'chocolate');
+        $('#lbl').html("Mouse Double Click");
+    });
+
 });
