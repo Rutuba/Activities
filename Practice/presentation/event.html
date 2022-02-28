@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Events</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="events.js" ></script>
+    </head>
+    <body>
+
+        <h1>jQuery Events</h1>
+        <h2>Attach and Detach Event Handlers</h2>
+        <h3>To attach :</h3>$(‘class/id/tag’).on(“<event>” , function(){}); 
+        <h3>To detach : </h3>.off(event [,selectors] [,handler] )<br>
+        $(this).off() — detach all the events attached to calling object<br>
+        $(this).off(‘click’) — detach the click event but keeps other event<br>
+        <hr>
+
+        <h2>Events</h2>
+        <ul class="elist">
+            <li><a href="click.html">Click</a></li>
+            <li><a href="mouse.html">Mouse</a></li>
+            <li><a href="keyboard.html">Keyboard</a></li>
+            <li><a href="form.html">Form/Input</a></li>
+            <li><a href="docEvents.html">Document/Window</a></li>
+        </ul>
+    </body>
+</html>
