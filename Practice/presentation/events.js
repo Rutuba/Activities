@@ -70,6 +70,24 @@ $(document).ready(function(){
         $('#lbl').html("Mouse Double Click");
     });
 
+    //Keyboard Events
+    $('#keyu').on('keyup',function(){
+        var x=$('#keyu').val();
+        $('#keyuOut').html(x);
+    });
+
+    $('#keyd').on('keydown',function(){
+        var x=$('#keyd').val();
+        $('#keydOut').html(x);
+    });
+
+    $('#keyp').on('keypress',function(){
+        var x=$('#keyp').val();
+        $('#keypOut').html(x);
+    });
+
+    //form / input events
+
 
 
     //documents/windows events
