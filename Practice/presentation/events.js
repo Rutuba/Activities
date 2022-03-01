@@ -88,6 +88,34 @@ $(document).ready(function(){
 
     //form / input events
 
+    $('#txt').on('focus',function(){
+       console.log("You clicked on the text box");
+    });
+
+    $('#txt').on('blur',function(){
+        console.log("You moved away from textbox.");
+        var x = $('#txt').val();
+        if(x == ""){
+            $('#txtError').html("*Please Enter Something.");
+            return false;
+        }
+        else{
+            $('#txtError').html("");
+        }
+     });
+
+     $('#clr').on('change',function(){
+        var x=$('#clr').val();
+        $('body').css('background-color' , x);
+     });
+
+     $('#frm').on('submit' , function(){
+        var retVal = confirm("confirm submit..?");
+        if( retVal == true )
+        {
+            $('body').html("<br><br><br><h1>Thank you ..!!! </h1>");
+        }
+     });
 
 
     //documents/windows events
