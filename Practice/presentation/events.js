@@ -20,7 +20,7 @@ $(document).ready(function(){
     //Pseudo-states : first-child, last-child, first-of-type, last-of-type ,first ,last etc.
     // console.log($('ul :first-child'));
     // console.log($('ul :last-child'));
-    //console.log($('.green:first-of-type'));
+    // console.log($('.green:first-of-type'));
     // console.log($('li:last-of-type'));
     //console.log($('.green:first'));
     // console.log($('li:last'));
